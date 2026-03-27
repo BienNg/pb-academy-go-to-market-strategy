@@ -127,7 +127,7 @@ function goToSlide(index) {
     currentSlide.classList.remove('active');
     
     // Reset animations in previous slide
-    const animatedElements = currentSlide.querySelectorAll('.slide-up, .fade-in');
+    const animatedElements = currentSlide.querySelectorAll('.slide-up, .fade-in, .slide-in-left, .scale-pop, .conversion-layer, .phase1-arrow');
     animatedElements.forEach(el => el.classList.remove('visible'));
 
     // Update index
@@ -157,7 +157,7 @@ function triggerAnimations(slideIndex) {
     const slide = document.getElementById(`slide-${slideIndex}`);
     if (!slide) return;
 
-    const elements = slide.querySelectorAll('.slide-up, .fade-in');
+    const elements = slide.querySelectorAll('.slide-up, .fade-in, .slide-in-left, .scale-pop, .conversion-layer, .phase1-arrow');
     elements.forEach(el => {
         // slight delay to ensure display has updated
         setTimeout(() => el.classList.add('visible'), 50);
