@@ -8,9 +8,9 @@ const slides = [
     'slide-07-placeholder.html',
     'slide-08-social-conversion.html',
     'slide-09-objective.html',
-    'slide-10-placeholder.html',
-    'slide-11-placeholder.html',
-    'slide-12-placeholder.html'
+    'slide-10-scaling-ads.html',
+    'slide-12-execution-advantage.html',
+    'slide-11-summary.html'
 ];
 
 let currentSlideIndex = 0;
