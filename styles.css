@@ -31,6 +31,7 @@ body {
 /* Helper Delays */
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
@@ -83,4 +84,566 @@ body {
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
+}
+
+/* —— Objective slide: layout + motion graphics —— */
+.objective-slide-layout {
+    width: 100%;
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.objective-slide-eyebrow {
+    letter-spacing: 0.28em;
+}
+
+.objective-primary-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .objective-primary-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+        gap: 2rem 3rem;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .objective-primary-grid {
+        gap: 2.5rem 4rem;
+    }
+}
+
+.objective-primary-copy {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .objective-primary-copy {
+        text-align: left;
+        padding-top: 0.25rem;
+    }
+}
+
+.objective-diagram-panel {
+    width: 100%;
+    min-width: 0;
+}
+
+.objective-diagram-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    padding: 0 0.125rem;
+}
+
+@media (min-width: 768px) {
+    .objective-diagram-heading {
+        margin-bottom: 0.875rem;
+    }
+}
+
+.objective-diagram-kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(134, 134, 139, 0.95);
+}
+
+.objective-diagram-note {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(134, 134, 139, 0.75);
+    white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+    .objective-diagram-note {
+        display: none;
+    }
+}
+
+.objective-section-rule {
+    height: 1px;
+    width: 100%;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08) 15%, rgba(255, 255, 255, 0.08) 85%, transparent);
+}
+
+@media (min-width: 768px) {
+    .objective-section-rule {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.objective-secondary-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .objective-secondary-header {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        text-align: left;
+        margin-bottom: 1.75rem;
+    }
+}
+
+.objective-secondary-sub {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: rgba(134, 134, 139, 0.9);
+    max-width: 28rem;
+}
+
+@media (min-width: 768px) {
+    .objective-secondary-sub {
+        text-align: right;
+    }
+}
+
+.objective-motion-wrap {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.objective-diagram {
+    position: relative;
+    border-radius: 1.25rem;
+    padding: 1.25rem 1rem 1.5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.2) inset,
+        0 24px 48px -20px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+}
+
+.objective-diagram::before {
+    content: '';
+    position: absolute;
+    inset: -40% -20%;
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41, 151, 255, 0.15), transparent 55%);
+    pointer-events: none;
+}
+
+.objective-diagram svg {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.objective-flow-path {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 8 12;
+    animation: objective-flow-dash 2.2s linear infinite;
+}
+
+.objective-flow-path--slow {
+    animation-duration: 3.4s;
+    opacity: 0.65;
+}
+
+@keyframes objective-flow-dash {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+.objective-hub-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: objective-hub-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes objective-hub-pulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.95;
+        transform: scale(1.08);
+    }
+}
+
+.objective-node-circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: objective-node-float 4s ease-in-out infinite;
+}
+
+.objective-node-circle--2 { animation-delay: 0.5s; }
+.objective-node-circle--3 { animation-delay: 1s; }
+.objective-node-circle--4 { animation-delay: 1.5s; }
+
+@keyframes objective-node-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.objective-caption {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0 0.125rem;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(134, 134, 139, 0.95);
+    text-align: center;
+}
+
+.objective-caption span {
+    min-width: 0;
+}
+
+@media (min-width: 480px) {
+    .objective-caption {
+        font-size: 11px;
+        letter-spacing: 0.11em;
+    }
+}
+
+@media (min-width: 768px) {
+    .objective-caption {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.35rem 0.5rem;
+        letter-spacing: 0.12em;
+        text-align: left;
+    }
+
+    .objective-caption span:nth-child(1) {
+        text-align: left;
+    }
+
+    .objective-caption span:nth-child(2),
+    .objective-caption span:nth-child(3) {
+        text-align: center;
+    }
+
+    .objective-caption span:nth-child(4) {
+        text-align: right;
+    }
+}
+
+.objective-caption-waitlist {
+    color: rgba(41, 151, 255, 0.95);
+}
+
+.objective-card-glow {
+    position: relative;
+}
+
+.objective-card-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    background: linear-gradient(120deg, transparent 40%, rgba(41, 151, 255, 0.08) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: objective-card-shimmer 4.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.objective-card-glow:hover::after {
+    opacity: 1;
+}
+
+@keyframes objective-card-shimmer {
+    0%, 100% {
+        background-position: 200% 0;
+    }
+    50% {
+        background-position: -200% 0;
+    }
+}
+
+.objective-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0;
+    background: rgba(41, 151, 255, 0.12);
+    color: #2997ff;
+    border: 1px solid rgba(41, 151, 255, 0.25);
+    animation: objective-step-pop 3s ease-in-out infinite;
+}
+
+.objective-step-num--2 { animation-delay: 0.6s; }
+.objective-step-num--3 { animation-delay: 1.2s; }
+
+@keyframes objective-step-pop {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.25);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 12px 0 rgba(41, 151, 255, 0.2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .objective-flow-path,
+    .objective-node-circle,
+    .objective-hub-pulse,
+    .objective-card-glow::after,
+    .objective-step-num {
+        animation: none !important;
+    }
+
+    .objective-flow-path {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+    }
+}
+
+/* —— Hero slide: Apple-like motion graphics —— */
+.hero-slide {
+    min-height: 100%;
+}
+
+.hero-motion {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-mesh {
+    position: absolute;
+    inset: -30%;
+    background:
+        radial-gradient(ellipse 55% 45% at 20% 35%, rgba(41, 151, 255, 0.22), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 75% 25%, rgba(147, 197, 253, 0.12), transparent 50%),
+        radial-gradient(ellipse 45% 50% at 50% 85%, rgba(59, 130, 246, 0.08), transparent 55%);
+    animation: hero-mesh-drift 22s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+.hero-mesh--secondary {
+    inset: -25%;
+    background:
+        radial-gradient(ellipse 40% 35% at 65% 60%, rgba(99, 102, 241, 0.1), transparent 50%),
+        radial-gradient(ellipse 35% 40% at 30% 70%, rgba(41, 151, 255, 0.06), transparent 48%);
+    animation: hero-mesh-drift-alt 28s ease-in-out infinite reverse;
+    opacity: 0.85;
+}
+
+@keyframes hero-mesh-drift {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    33% {
+        transform: translate(4%, -3%) scale(1.03);
+        opacity: 0.95;
+    }
+    66% {
+        transform: translate(-3%, 4%) scale(0.98);
+        opacity: 1;
+    }
+}
+
+@keyframes hero-mesh-drift-alt {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-5%, 5%) rotate(2deg);
+    }
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: hero-orb-float 14s ease-in-out infinite;
+}
+
+.hero-orb--1 {
+    width: min(55vw, 420px);
+    height: min(55vw, 420px);
+    top: -8%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(41, 151, 255, 0.35) 0%, transparent 70%);
+    animation-duration: 16s;
+}
+
+.hero-orb--2 {
+    width: min(45vw, 340px);
+    height: min(45vw, 340px);
+    bottom: 5%;
+    right: -8%;
+    background: radial-gradient(circle, rgba(147, 197, 253, 0.2) 0%, transparent 68%);
+    animation-duration: 18s;
+    animation-delay: -4s;
+}
+
+.hero-orb--3 {
+    width: min(35vw, 280px);
+    height: min(35vw, 280px);
+    top: 40%;
+    left: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 65%);
+    animation-name: hero-orb-float-center;
+    animation-duration: 20s;
+    animation-delay: -8s;
+    filter: blur(80px);
+}
+
+@keyframes hero-orb-float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+    }
+    33% {
+        transform: translate(3%, -4%) scale(1.05);
+        opacity: 1;
+    }
+    66% {
+        transform: translate(-4%, 3%) scale(0.96);
+        opacity: 0.85;
+    }
+}
+
+@keyframes hero-orb-float-center {
+    0%, 100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-50%, -6%) scale(1.08);
+        opacity: 0.95;
+    }
+}
+
+.hero-ring {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    width: min(90vw, 720px);
+    height: min(90vw, 720px);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 0 80px rgba(41, 151, 255, 0.06),
+        inset 0 0 60px rgba(255, 255, 255, 0.02);
+    animation: hero-ring-breathe 10s ease-in-out infinite;
+}
+
+@keyframes hero-ring-breathe {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.04);
+        opacity: 0.95;
+    }
+}
+
+.hero-flow {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: min(110vw, 900px);
+    height: auto;
+    transform: translate(-50%, -50%);
+    opacity: 0.85;
+}
+
+.hero-flow-path {
+    stroke-dasharray: 12 18;
+    animation: hero-flow-dash 4s linear infinite;
+}
+
+.hero-flow-path--delayed {
+    stroke-dasharray: 8 14;
+    animation-duration: 5.5s;
+    animation-direction: reverse;
+    opacity: 0.5;
+}
+
+@keyframes hero-flow-dash {
+    to {
+        stroke-dashoffset: -60;
+    }
+}
+
+.hero-title {
+    letter-spacing: -0.03em;
+    text-shadow: 0 0 80px rgba(41, 151, 255, 0.15);
+}
+
+.hero-subtitle {
+    letter-spacing: -0.025em;
+}
+
+.hero-tagline {
+    letter-spacing: 0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-mesh,
+    .hero-mesh--secondary,
+    .hero-orb,
+    .hero-ring,
+    .hero-flow-path,
+    .hero-flow-path--delayed {
+        animation: none !important;
+    }
+
+    .hero-flow-path {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+    }
+
+    .hero-mesh,
+    .hero-orb {
+        transform: none;
+    }
+
+    .hero-ring {
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+    }
 }

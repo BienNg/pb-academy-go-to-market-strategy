@@ -1,45 +1,134 @@
-<!-- Slide 3: Objective — Apple-inspired layout -->
-<div class="max-w-6xl mx-auto px-6 md:px-10 w-full flex flex-col justify-center min-h-full py-12 relative font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,'Helvetica_Neue',sans-serif]">
+<!-- Slide 3: Objective — intentional grid: primary narrative + diagram, then supporting goals -->
+<div class="max-w-[min(100%,72rem)] mx-auto px-6 md:px-10 lg:px-12 w-full flex flex-col justify-center min-h-full py-10 md:py-12 relative font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,'Helvetica_Neue',sans-serif]">
     <!-- Ambient layers (product-page style) -->
     <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[min(120vw,900px)] h-[min(120vw,900px)] rounded-full bg-[radial-gradient(closest-side,rgba(41,151,255,0.12),transparent_70%)] blur-3xl opacity-90"></div>
         <div class="absolute top-[20%] right-[10%] w-64 h-64 rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.08),transparent_70%)] blur-3xl"></div>
     </div>
 
-    <div class="relative z-10 flex flex-col items-center text-center">
-        <p class="text-[11px] md:text-xs font-semibold tracking-[0.28em] uppercase text-[#86868b] mb-6 md:mb-8 slide-up">
+    <div class="relative z-10 objective-slide-layout flex flex-col">
+        <!-- Slide title -->
+        <p class="objective-slide-eyebrow text-[11px] md:text-xs font-semibold uppercase text-[#86868b] mb-8 md:mb-10 text-center md:text-left slide-up">
             Objective
         </p>
 
-        <div class="max-w-[42rem] mx-auto mb-14 md:mb-20 slide-up delay-100">
-            <p class="text-[13px] md:text-sm font-medium text-[#2997ff] mb-4 md:mb-5 tracking-wide">
-                Primary goal
-            </p>
-            <h2 class="text-[1.75rem] sm:text-3xl md:text-[2.75rem] font-semibold text-[#f5f5f7] tracking-[-0.03em] leading-[1.12]">
-                Generate high-quality leads (waitlist signups) for the 4-week coaching program.
-            </h2>
+        <!-- Primary: copy + conversion diagram (paired on md+) -->
+        <div class="objective-primary-grid">
+            <div class="objective-primary-copy slide-up delay-100">
+                <p class="text-[13px] md:text-sm font-medium text-[#2997ff] mb-3 md:mb-4 tracking-wide">
+                    Primary goal
+                </p>
+                <h2 class="text-[1.65rem] sm:text-3xl md:text-[2.5rem] lg:text-[2.65rem] font-semibold text-[#f5f5f7] tracking-[-0.03em] leading-[1.1] max-w-xl md:max-w-none mx-auto md:mx-0">
+                    Generate high-quality leads (waitlist signups) for the 4-week coaching program.
+                </h2>
+            </div>
+
+            <div class="objective-diagram-panel slide-up delay-200" role="presentation">
+                <div class="objective-diagram-heading">
+                    <span class="objective-diagram-kicker">Conversion path</span>
+                    <span class="objective-diagram-note">Audience → signup → program</span>
+                </div>
+                <div class="objective-motion-wrap" role="img" aria-label="Animated diagram: audience reach flows through content and waitlist into the coaching program">
+                    <p class="sr-only">Visual: Reach and content feed the waitlist; waitlist feeds the 4-week program. Dashed lines animate to show flow.</p>
+                    <div class="objective-diagram">
+                        <svg viewBox="0 0 448 108" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="objectiveFlowGrad" x1="0" y1="46" x2="448" y2="46" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#2997ff" stop-opacity="0.35"/>
+                                    <stop offset="0.45" stop-color="#7c3aed" stop-opacity="0.85"/>
+                                    <stop offset="1" stop-color="#2997ff" stop-opacity="0.4"/>
+                                </linearGradient>
+                                <radialGradient id="objectiveHubFill" cx="272" cy="50" r="28" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#2997ff" stop-opacity="0.35"/>
+                                    <stop offset="1" stop-color="#2997ff" stop-opacity="0"/>
+                                </radialGradient>
+                                <filter id="objectiveGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="3" result="b"/>
+                                    <feMerge>
+                                        <feMergeNode in="b"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <circle class="objective-hub-pulse" cx="272" cy="50" r="28" fill="url(#objectiveHubFill)" opacity="0.5"/>
+                            <path id="obj-path-a" d="M 52 50 C 96 22 124 22 164 50" fill="none" stroke="none"/>
+                            <path id="obj-path-b" d="M 164 50 C 204 22 232 22 272 50" fill="none" stroke="none"/>
+                            <path id="obj-path-c" d="M 272 50 C 312 22 340 22 380 50" fill="none" stroke="none"/>
+                            <path class="objective-flow-path" stroke="url(#objectiveFlowGrad)" stroke-width="2" stroke-linecap="round" d="M 52 50 C 96 22 124 22 164 50"/>
+                            <path class="objective-flow-path objective-flow-path--slow" stroke="url(#objectiveFlowGrad)" stroke-width="2" stroke-linecap="round" d="M 164 50 C 204 22 232 22 272 50"/>
+                            <path class="objective-flow-path" stroke="url(#objectiveFlowGrad)" stroke-width="2" stroke-linecap="round" d="M 272 50 C 312 22 340 22 380 50"/>
+                            <circle r="3.5" fill="#2997ff" filter="url(#objectiveGlow)">
+                                <animateMotion dur="2.4s" repeatCount="indefinite" rotate="auto" calcMode="linear">
+                                    <mpath xlink:href="#obj-path-a"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="3" fill="#a78bfa" opacity="0.9">
+                                <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.4s" rotate="auto" calcMode="linear">
+                                    <mpath xlink:href="#obj-path-b"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="3.5" fill="#f5f5f7" opacity="0.85">
+                                <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.2s" rotate="auto" calcMode="linear">
+                                    <mpath xlink:href="#obj-path-c"/>
+                                </animateMotion>
+                            </circle>
+                            <g class="objective-node-circle">
+                                <circle cx="52" cy="50" r="10" fill="rgba(13,13,15,0.9)" stroke="rgba(41,151,255,0.45)" stroke-width="1.5"/>
+                                <circle cx="52" cy="50" r="4" fill="#2997ff"/>
+                            </g>
+                            <g class="objective-node-circle objective-node-circle--2">
+                                <circle cx="164" cy="50" r="10" fill="rgba(13,13,15,0.9)" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"/>
+                                <path d="M160 50h8M164 46v8" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+                            </g>
+                            <g class="objective-node-circle objective-node-circle--3">
+                                <circle cx="272" cy="50" r="14" fill="rgba(13,13,15,0.95)" stroke="rgba(41,151,255,0.65)" stroke-width="2"/>
+                                <rect x="266" y="44" width="12" height="12" rx="2" fill="none" stroke="#2997ff" stroke-width="1.5"/>
+                                <path d="M268 50h8M272 46v8" stroke="#2997ff" stroke-width="1" stroke-linecap="round"/>
+                            </g>
+                            <g class="objective-node-circle objective-node-circle--4">
+                                <circle cx="380" cy="50" r="10" fill="rgba(13,13,15,0.9)" stroke="rgba(245,245,247,0.35)" stroke-width="1.5"/>
+                                <path d="M375 50h10M380 45v10" stroke="#f5f5f7" stroke-width="1.2" stroke-linecap="round"/>
+                            </g>
+                        </svg>
+                        <div class="objective-caption">
+                            <span>Reach</span>
+                            <span>Educate</span>
+                            <span class="objective-caption-waitlist">Waitlist</span>
+                            <span>4-week program</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="w-full max-w-5xl slide-up delay-300">
-            <p class="text-[13px] md:text-sm font-medium text-[#86868b] mb-8 md:mb-10 tracking-wide">
-                Secondary goals
-            </p>
+        <div class="objective-section-rule slide-up delay-250" aria-hidden="true"></div>
+
+        <!-- Secondary goals: explicit section with header + grid -->
+        <div class="w-full">
+            <div class="objective-secondary-header slide-up delay-300">
+                <p class="text-[13px] md:text-sm font-medium text-[#86868b] tracking-wide m-0">
+                    Secondary goals
+                </p>
+                <p class="objective-secondary-sub m-0">
+                    Brand and education outcomes that support the primary conversion goal.
+                </p>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-px rounded-2xl md:rounded-3xl overflow-hidden bg-white/[0.08] border border-white/[0.06] shadow-[0_24px_80px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
-                <article class="bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left md:border-r md:border-white/[0.06] last:border-r-0">
-                    <span class="text-[11px] font-semibold text-[#424245] tracking-widest tabular-nums">01</span>
+                <article class="objective-card-glow bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left md:border-r md:border-white/[0.06] last:border-r-0 slide-up delay-400">
+                    <span class="objective-step-num">01</span>
                     <p class="mt-4 text-[15px] md:text-[17px] leading-snug text-[#e8e8ed] font-medium tracking-[-0.02em]">
                         Build authority in HCMC pickleball scene
                     </p>
                 </article>
-                <article class="bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left md:border-r md:border-white/[0.06] last:border-r-0">
-                    <span class="text-[11px] font-semibold text-[#424245] tracking-widest tabular-nums">02</span>
+                <article class="objective-card-glow bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left md:border-r md:border-white/[0.06] last:border-r-0 slide-up delay-500">
+                    <span class="objective-step-num objective-step-num--2">02</span>
                     <p class="mt-4 text-[15px] md:text-[17px] leading-snug text-[#e8e8ed] font-medium tracking-[-0.02em]">
                         Educate market on structured coaching
                     </p>
                 </article>
-                <article class="bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left">
-                    <span class="text-[11px] font-semibold text-[#424245] tracking-widest tabular-nums">03</span>
+                <article class="objective-card-glow bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left slide-up delay-600">
+                    <span class="objective-step-num objective-step-num--3">03</span>
                     <p class="mt-4 text-[15px] md:text-[17px] leading-snug text-[#e8e8ed] font-medium tracking-[-0.02em]">
                         Position PB Academy as the most professional system
                     </p>

@@ -1,24 +1,44 @@
 <!-- Slide 1: Hero -->
-<div class="max-w-6xl mx-auto px-6 text-center w-full flex flex-col justify-center items-center h-full">
-    <div class="relative w-full">
-        <!-- Subtle Background Glow -->
-        <div class="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full w-[400px] h-[400px] mx-auto opacity-50 pointer-events-none"></div>
-        
-        <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight mb-6 slide-up drop-shadow-lg text-white">
+<div class="hero-slide relative w-full h-full flex flex-col justify-center items-center overflow-hidden">
+    <!-- Apple-style motion graphics (decorative) -->
+    <div class="hero-motion" aria-hidden="true">
+        <div class="hero-mesh"></div>
+        <div class="hero-mesh hero-mesh--secondary"></div>
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-orb hero-orb--3"></div>
+        <div class="hero-ring"></div>
+        <svg class="hero-flow" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="hero-flow-grad" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stop-color="rgba(41,151,255,0)" />
+                    <stop offset="45%" stop-color="rgba(41,151,255,0.45)" />
+                    <stop offset="100%" stop-color="rgba(147,197,253,0.15)" />
+                </linearGradient>
+            </defs>
+            <path class="hero-flow-path" fill="none" stroke="url(#hero-flow-grad)" stroke-width="1.5" stroke-linecap="round"
+                d="M 80 220 Q 200 120 400 200 T 720 180" />
+            <path class="hero-flow-path hero-flow-path--delayed" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-linecap="round"
+                d="M 100 260 Q 280 320 420 240 T 700 240" />
+        </svg>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center w-full flex flex-col justify-center items-center">
+        <h1 class="hero-title text-6xl md:text-8xl font-extrabold tracking-tight mb-5 md:mb-6 slide-up drop-shadow-lg text-white">
             PB Academy
         </h1>
-        
-        <h2 class="text-3xl md:text-4xl text-zinc-300 font-medium mb-8 slide-up delay-200 leading-tight">
-            Go-to-Market & <br class="md:hidden">Customer Acquisition Strategy
+
+        <h2 class="hero-subtitle text-3xl md:text-5xl text-white font-semibold mb-6 md:mb-8 slide-up delay-200 leading-[1.15] tracking-tight">
+            Go-To-Market Strategy
         </h2>
-        
-        <p class="text-xl text-zinc-400 max-w-2xl mx-auto font-light slide-up delay-400">
-            Building a scalable system to acquire and convert pickleball players.
+
+        <p class="hero-tagline text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto font-light slide-up delay-400 italic">
+            How we build demand and convert players into students
         </p>
 
-        <div class="mt-16 slide-up delay-600 fade-in text-sm text-zinc-600 animate-pulse tracking-widest uppercase">
+        <div class="mt-14 md:mt-20 slide-up delay-600 fade-in text-sm text-zinc-600 tracking-widest uppercase">
             Scroll to begin
-            <svg class="w-5 h-5 mx-auto mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            <svg class="w-5 h-5 mx-auto mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </div>
     </div>
 </div>
