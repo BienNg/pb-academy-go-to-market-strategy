@@ -1,6 +1,6 @@
 const slides = [
     'slide-01-hero.html',
-    'slide-02-problem.html',
+    'slide-02-market-entry.html',
     'slide-03-objective.html',
     'slide-04-approach.html',
     'slide-06-content-engine.html',
