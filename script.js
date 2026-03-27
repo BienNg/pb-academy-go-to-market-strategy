@@ -3,18 +3,12 @@ const slides = [
     'slide-02-problem.html',
     'slide-03-objective.html',
     'slide-04-approach.html',
-    'slide-05-funnel.html',
     'slide-06-content-engine.html',
     'slide-07-content-output.html',
     'slide-08-distribution.html',
     'slide-09-paid-strategy.html',
-    'slide-10-targeting.html',
-    'slide-11-conversion.html',
-    'slide-12-retargeting.html',
-    'slide-13-unit-economics.html',
     'slide-14-scalability.html',
     'slide-15-competition.html',
-    'slide-16-kpis.html',
     'slide-17-outcome.html',
     'slide-18-closing.html'
 ];
