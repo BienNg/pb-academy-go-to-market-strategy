@@ -1085,6 +1085,7 @@ body {
     pointer-events: none;
     opacity: 0;
     will-change: left, bottom, opacity;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;
 }
 
 .slide-section:not(.active) .gtm-climber {
@@ -1485,4 +1486,25 @@ body {
     .phase1-arrow.visible .phase1-arrow-path {
         stroke-dashoffset: 0;
     }
+}
+
+/* Animations for Slide 2 Sub-states */
+.gtm-step-block {
+    transform-origin: bottom center;
+}
+
+.gtm-step-block.shrink-away {
+    transform: translateY(0) scale(0) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out !important;
+    transition-delay: 0ms !important;
+}
+
+.gtm-climber.shrink-away {
+    transform: translateX(-50%) scale(0) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out !important;
+    transition-delay: 0ms !important;
 }

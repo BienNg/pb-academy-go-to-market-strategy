@@ -16,6 +16,7 @@ const slides = [
 let currentSlideIndex = 0;
 let isAnimating = false;
 let startTouchY = 0;
+let slide2SubState = 0; // 0: initial, 1: steps 2,3,4 hidden
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
@@ -80,12 +81,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         const diff = startTouchY - touchY;
         
         if (Math.abs(diff) > 50) { // Threshold
-            if (diff > 0 && currentSlideIndex < slides.length - 1) {
+            if (diff > 0) {
                 // Swipe up
-                goToSlide(currentSlideIndex + 1);
-            } else if (diff < 0 && currentSlideIndex > 0) {
+                if (currentSlideIndex === 2 && slide2SubState === 0) {
+                    transitionSlide2SubState(1);
+                } else if (currentSlideIndex < slides.length - 1) {
+                    goToSlide(currentSlideIndex + 1);
+                }
+            } else if (diff < 0) {
                 // Swipe down
-                goToSlide(currentSlideIndex - 1);
+                if (currentSlideIndex === 2 && slide2SubState === 1) {
+                    transitionSlide2SubState(0);
+                } else if (currentSlideIndex > 0) {
+                    goToSlide(currentSlideIndex - 1);
+                }
             }
             startTouchY = touchY; // Reset threshold
         }
@@ -97,20 +106,36 @@ function handleScroll(e) {
     
     if (isAnimating) return;
 
-    if (e.deltaY > 0 && currentSlideIndex < slides.length - 1) {
-        goToSlide(currentSlideIndex + 1);
-    } else if (e.deltaY < 0 && currentSlideIndex > 0) {
-        goToSlide(currentSlideIndex - 1);
+    if (e.deltaY > 0) {
+        if (currentSlideIndex === 2 && slide2SubState === 0) {
+            transitionSlide2SubState(1);
+        } else if (currentSlideIndex < slides.length - 1) {
+            goToSlide(currentSlideIndex + 1);
+        }
+    } else if (e.deltaY < 0) {
+        if (currentSlideIndex === 2 && slide2SubState === 1) {
+            transitionSlide2SubState(0);
+        } else if (currentSlideIndex > 0) {
+            goToSlide(currentSlideIndex - 1);
+        }
     }
 }
 
 function handleKeyDown(e) {
     if (isAnimating) return;
 
-    if ((e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') && currentSlideIndex < slides.length - 1) {
-        goToSlide(currentSlideIndex + 1);
-    } else if ((e.key === 'ArrowUp' || e.key === 'PageUp') && currentSlideIndex > 0) {
-        goToSlide(currentSlideIndex - 1);
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+        if (currentSlideIndex === 2 && slide2SubState === 0) {
+            transitionSlide2SubState(1);
+        } else if (currentSlideIndex < slides.length - 1) {
+            goToSlide(currentSlideIndex + 1);
+        }
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        if (currentSlideIndex === 2 && slide2SubState === 1) {
+            transitionSlide2SubState(0);
+        } else if (currentSlideIndex > 0) {
+            goToSlide(currentSlideIndex - 1);
+        }
     } else if (e.key === 'Home') {
         goToSlide(0);
     } else if (e.key === 'End') {
@@ -121,6 +146,16 @@ function handleKeyDown(e) {
 function goToSlide(index) {
     if (isAnimating || index === currentSlideIndex) return;
     isAnimating = true;
+
+    // Reset slide2 sub-state if we are leaving or entering slide 2
+    if (currentSlideIndex === 2 || index === 2) {
+        slide2SubState = 0;
+        const slide2 = document.getElementById('slide-2');
+        if (slide2) {
+            const stepsToHide = slide2.querySelectorAll('.gtm-step-block--2, .gtm-step-block--3, .gtm-step-block--4, .gtm-climber');
+            stepsToHide.forEach(el => el.classList.remove('shrink-away'));
+        }
+    }
 
     // Remove active class from current slide
     const currentSlide = document.getElementById(`slide-${currentSlideIndex}`);
@@ -167,4 +202,24 @@ function triggerAnimations(slideIndex) {
 function setupObserver() {
     // We handle animations manually via JS when slides change
     // but keep this structure in case we want to observe specific elements later
+}
+
+function transitionSlide2SubState(newState) {
+    if (isAnimating) return;
+    isAnimating = true;
+    slide2SubState = newState;
+
+    const slide = document.getElementById('slide-2');
+    if (!slide) return;
+    const stepsToHide = slide.querySelectorAll('.gtm-step-block--2, .gtm-step-block--3, .gtm-step-block--4, .gtm-climber');
+
+    if (newState === 1) {
+        stepsToHide.forEach(el => el.classList.add('shrink-away'));
+    } else {
+        stepsToHide.forEach(el => el.classList.remove('shrink-away'));
+    }
+
+    setTimeout(() => {
+        isAnimating = false;
+    }, 600); // Wait for transition to finish
 }
