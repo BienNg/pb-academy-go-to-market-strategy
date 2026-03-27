@@ -3,14 +3,7 @@ const slides = [
     'slide-02-market-entry.html',
     'slide-03-objective.html',
     'slide-04-approach.html',
-    'slide-06-content-engine.html',
-    'slide-07-content-output.html',
-    'slide-08-distribution.html',
-    'slide-09-paid-strategy.html',
-    'slide-14-scalability.html',
-    'slide-15-competition.html',
-    'slide-17-outcome.html',
-    'slide-18-closing.html'
+    'slide-05-phases-1-2.html'
 ];
 
 let currentSlideIndex = 0;
