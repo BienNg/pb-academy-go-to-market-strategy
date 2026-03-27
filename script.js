@@ -4,9 +4,9 @@ const slides = [
     'slide-03-objective.html',
     'slide-04-approach.html',
     'slide-05-phases-1-2.html',
-    'slide-06-placeholder.html',
+    'slide-06-phase2-validation.html',
     'slide-07-placeholder.html',
-    'slide-08-placeholder.html',
+    'slide-08-social-conversion.html',
     'slide-09-placeholder.html'
 ];
 

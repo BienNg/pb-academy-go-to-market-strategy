@@ -1,0 +1,109 @@
+/* Slide 6: Phase 2 — Validation (Centered Flow Composition) */
+
+.slide-06-phase2 {
+    --phase2-text-main: #f5f5f7;
+    --phase2-text-secondary: #a1a1a6;
+    --phase2-text-tertiary: #86868b;
+
+    --phase2-premium-a: #fff3cf;
+    --phase2-premium-b: #e7c767;
+    --phase2-premium-c: #c9a24b;
+    --phase2-premium-glow: rgba(232, 198, 97, 0.23);
+}
+
+.slide-06-phase2 .phase2-orb-main {
+    background: radial-gradient(closest-side, rgba(255, 232, 170, 0.08), transparent 72%);
+    filter: blur(70px);
+}
+
+.slide-06-phase2 .phase2-orb-accent {
+    background: radial-gradient(circle, rgba(41, 151, 255, 0.06), transparent 70%);
+    filter: blur(56px);
+}
+
+.slide-06-phase2 .phase2-kicker {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--phase2-text-tertiary);
+}
+
+.slide-06-phase2 .phase2-headline {
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--phase2-text-main);
+    text-wrap: balance;
+}
+
+.slide-06-phase2 .phase2-goal-core,
+.slide-06-phase2 .phase2-section-title,
+.slide-06-phase2 .phase2-em {
+    background: linear-gradient(
+        135deg,
+        var(--phase2-premium-a) 0%,
+        var(--phase2-premium-b) 50%,
+        var(--phase2-premium-c) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 14px var(--phase2-premium-glow));
+}
+
+.slide-06-phase2 .phase2-section-title {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+}
+
+.slide-06-phase2 .phase2-main-card {
+    background-color: rgba(20, 20, 22, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+}
+
+/* Animation Keyframes for Motion Graphic */
+@keyframes phase2-scan-mask {
+    0%, 15% { 
+        -webkit-clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 100% 0 0); 
+    }
+    45%, 55% { 
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0); 
+    }
+    85%, 100% { 
+        -webkit-clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 100% 0 0); 
+    }
+}
+
+@keyframes phase2-scan-line {
+    0%, 15% { left: 0%; opacity: 0; }
+    16% { left: 0%; opacity: 1; }
+    45%, 55% { left: 100%; opacity: 1; }
+    56% { left: 100%; opacity: 0; }
+    84% { left: 0%; opacity: 0; }
+    85%, 100% { left: 0%; opacity: 0; }
+}
+
+@keyframes phase2-video-progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.slide-06-phase2 .phase2-after {
+    animation: phase2-scan-mask 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.slide-06-phase2 .phase2-scanner {
+    animation: phase2-scan-line 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform: translateX(-50%);
+}
+
+.slide-06-phase2 .phase2-progress {
+    animation: phase2-video-progress 6s linear infinite;
+}
