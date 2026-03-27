@@ -1,139 +1,76 @@
-<!-- Slide 3: Objective — intentional grid: primary narrative + diagram, then supporting goals -->
-<div class="max-w-[min(100%,72rem)] mx-auto px-6 md:px-10 lg:px-12 w-full flex flex-col justify-center min-h-full py-10 md:py-12 relative font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,'Helvetica_Neue',sans-serif]">
-    <!-- Ambient layers (product-page style) -->
+<!-- Slide 3: GTM Phases Overview — staircase + climber -->
+<div class="gtm-phases-slide relative w-full h-full flex flex-col justify-center overflow-hidden min-h-0 font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,'Helvetica_Neue',sans-serif]">
     <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[min(120vw,900px)] h-[min(120vw,900px)] rounded-full bg-[radial-gradient(closest-side,rgba(41,151,255,0.12),transparent_70%)] blur-3xl opacity-90"></div>
-        <div class="absolute top-[20%] right-[10%] w-64 h-64 rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.08),transparent_70%)] blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[52%] w-[min(125vw,920px)] h-[min(125vw,920px)] rounded-full bg-[radial-gradient(closest-side,rgba(41,151,255,0.1),transparent_72%)] blur-3xl opacity-95"></div>
+        <div class="absolute bottom-[10%] right-[6%] w-[min(50vw,380px)] h-[min(50vw,380px)] rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.06),transparent_72%)] blur-3xl"></div>
     </div>
 
-    <div class="relative z-10 objective-slide-layout flex flex-col">
-        <!-- Slide title -->
-        <p class="objective-slide-eyebrow text-[11px] md:text-xs font-semibold uppercase text-[#86868b] mb-8 md:mb-10 text-center md:text-left slide-up">
-            Objective
+    <div class="relative z-10 w-full max-w-[min(100%,64rem)] mx-auto px-5 sm:px-8 md:px-10 lg:px-12 flex flex-col justify-center gap-6 md:gap-8 py-8 md:py-12 overflow-y-auto max-h-full">
+        <header class="text-center slide-up">
+            <p class="text-[11px] md:text-xs font-semibold uppercase tracking-[0.26em] text-[#86868b] mb-3 md:mb-4">
+                Go-to-Market Phases
+            </p>
+            <h2 class="text-[1.65rem] sm:text-3xl md:text-[2.35rem] lg:text-[2.65rem] font-semibold text-[#f5f5f7] tracking-[-0.035em] leading-[1.08] max-w-3xl mx-auto">
+                GTM Phases Overview
+            </h2>
+            <p class="mt-3 md:mt-4 text-sm md:text-[15px] text-[#a1a1a6] max-w-2xl mx-auto leading-relaxed">
+                3 core phases + 1 scaling phase — each step removes friction. Rising height reflects difficulty and maturity.
+            </p>
+        </header>
+
+        <p class="text-center text-[13px] md:text-sm text-[#86868b] slide-up delay-100">
+            <span class="text-[#f5f5f7] font-medium">Each phase removes friction</span>
         </p>
 
-        <!-- Primary: copy + conversion diagram (paired on md+) -->
-        <div class="objective-primary-grid">
-            <div class="objective-primary-copy slide-up delay-100">
-                <p class="text-[13px] md:text-sm font-medium text-[#2997ff] mb-3 md:mb-4 tracking-wide">
-                    Primary goal
-                </p>
-                <h2 class="text-[1.65rem] sm:text-3xl md:text-[2.5rem] lg:text-[2.65rem] font-semibold text-[#f5f5f7] tracking-[-0.03em] leading-[1.1] max-w-xl md:max-w-none mx-auto md:mx-0">
-                    Generate high-quality leads (waitlist signups) for the 4-week coaching program.
-                </h2>
-            </div>
-
-            <div class="objective-diagram-panel slide-up delay-200" role="presentation">
-                <div class="objective-diagram-heading">
-                    <span class="objective-diagram-kicker">Conversion path</span>
-                    <span class="objective-diagram-note">Audience → signup → program</span>
-                </div>
-                <div class="objective-motion-wrap" role="img" aria-label="Animated diagram: audience reach flows through content and waitlist into the coaching program">
-                    <p class="sr-only">Visual: Reach and content feed the waitlist; waitlist feeds the 4-week program. Dashed lines animate to show flow.</p>
-                    <div class="objective-diagram">
-                        <svg viewBox="0 0 448 108" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-                            <defs>
-                                <linearGradient id="objectiveFlowGrad" x1="0" y1="46" x2="448" y2="46" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#2997ff" stop-opacity="0.35"/>
-                                    <stop offset="0.45" stop-color="#7c3aed" stop-opacity="0.85"/>
-                                    <stop offset="1" stop-color="#2997ff" stop-opacity="0.4"/>
-                                </linearGradient>
-                                <radialGradient id="objectiveHubFill" cx="272" cy="50" r="28" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#2997ff" stop-opacity="0.35"/>
-                                    <stop offset="1" stop-color="#2997ff" stop-opacity="0"/>
-                                </radialGradient>
-                                <filter id="objectiveGlow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="3" result="b"/>
-                                    <feMerge>
-                                        <feMergeNode in="b"/>
-                                        <feMergeNode in="SourceGraphic"/>
-                                    </feMerge>
-                                </filter>
-                            </defs>
-                            <circle class="objective-hub-pulse" cx="272" cy="50" r="28" fill="url(#objectiveHubFill)" opacity="0.5"/>
-                            <path id="obj-path-a" d="M 52 50 C 96 22 124 22 164 50" fill="none" stroke="none"/>
-                            <path id="obj-path-b" d="M 164 50 C 204 22 232 22 272 50" fill="none" stroke="none"/>
-                            <path id="obj-path-c" d="M 272 50 C 312 22 340 22 380 50" fill="none" stroke="none"/>
-                            <path class="objective-flow-path" stroke="url(#objectiveFlowGrad)" stroke-width="2" stroke-linecap="round" d="M 52 50 C 96 22 124 22 164 50"/>
-                            <path class="objective-flow-path objective-flow-path--slow" stroke="url(#objectiveFlowGrad)" stroke-width="2" stroke-linecap="round" d="M 164 50 C 204 22 232 22 272 50"/>
-                            <path class="objective-flow-path" stroke="url(#objectiveFlowGrad)" stroke-width="2" stroke-linecap="round" d="M 272 50 C 312 22 340 22 380 50"/>
-                            <circle r="3.5" fill="#2997ff" filter="url(#objectiveGlow)">
-                                <animateMotion dur="2.4s" repeatCount="indefinite" rotate="auto" calcMode="linear">
-                                    <mpath xlink:href="#obj-path-a"/>
-                                </animateMotion>
-                            </circle>
-                            <circle r="3" fill="#a78bfa" opacity="0.9">
-                                <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.4s" rotate="auto" calcMode="linear">
-                                    <mpath xlink:href="#obj-path-b"/>
-                                </animateMotion>
-                            </circle>
-                            <circle r="3.5" fill="#f5f5f7" opacity="0.85">
-                                <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.2s" rotate="auto" calcMode="linear">
-                                    <mpath xlink:href="#obj-path-c"/>
-                                </animateMotion>
-                            </circle>
-                            <g class="objective-node-circle">
-                                <circle cx="52" cy="50" r="10" fill="rgba(13,13,15,0.9)" stroke="rgba(41,151,255,0.45)" stroke-width="1.5"/>
-                                <circle cx="52" cy="50" r="4" fill="#2997ff"/>
-                            </g>
-                            <g class="objective-node-circle objective-node-circle--2">
-                                <circle cx="164" cy="50" r="10" fill="rgba(13,13,15,0.9)" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"/>
-                                <path d="M160 50h8M164 46v8" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
-                            </g>
-                            <g class="objective-node-circle objective-node-circle--3">
-                                <circle cx="272" cy="50" r="14" fill="rgba(13,13,15,0.95)" stroke="rgba(41,151,255,0.65)" stroke-width="2"/>
-                                <rect x="266" y="44" width="12" height="12" rx="2" fill="none" stroke="#2997ff" stroke-width="1.5"/>
-                                <path d="M268 50h8M272 46v8" stroke="#2997ff" stroke-width="1" stroke-linecap="round"/>
-                            </g>
-                            <g class="objective-node-circle objective-node-circle--4">
-                                <circle cx="380" cy="50" r="10" fill="rgba(13,13,15,0.9)" stroke="rgba(245,245,247,0.35)" stroke-width="1.5"/>
-                                <path d="M375 50h10M380 45v10" stroke="#f5f5f7" stroke-width="1.2" stroke-linecap="round"/>
-                            </g>
+        <div class="gtm-stairs-panel slide-up delay-150" role="img" aria-label="Four ascending steps: Attention, Validation, Experience, Scale. A player icon climbs each step in order.">
+            <p class="sr-only">
+                Step 1 Attention: reach audience. Step 2 Validation: build trust. Step 3 Experience: drive conversion. Step 4 Scale: increase reach.
+            </p>
+            <div class="gtm-stairs-inner">
+                <div class="gtm-stairs-blocks">
+                    <div class="gtm-step-block gtm-step-block--1 slide-up delay-100">
+                        <span class="gtm-step-num">1</span>
+                    </div>
+                    <div class="gtm-step-block gtm-step-block--2 slide-up delay-200">
+                        <span class="gtm-step-num">2</span>
+                    </div>
+                    <div class="gtm-step-block gtm-step-block--3 slide-up delay-300">
+                        <span class="gtm-step-num">3</span>
+                    </div>
+                    <div class="gtm-step-block gtm-step-block--4 slide-up delay-400">
+                        <span class="gtm-step-num">4</span>
+                    </div>
+                    <div class="gtm-climber" aria-hidden="true">
+                        <svg class="gtm-climber-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="19" fill="rgba(13,13,15,0.92)" stroke="rgba(41,151,255,0.5)" stroke-width="1.5"/>
+                            <circle cx="20" cy="14" r="4.5" fill="#f5f5f7"/>
+                            <path d="M12 36c0-6 3.5-9 8-9s8 3 8 9" stroke="#2997ff" stroke-width="2" stroke-linecap="round" fill="none"/>
+                            <path d="M20 18v8M14 26h12" stroke="#a1a1a6" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
-                        <div class="objective-caption">
-                            <span>Reach</span>
-                            <span>Educate</span>
-                            <span class="objective-caption-waitlist">Waitlist</span>
-                            <span>4-week program</span>
-                        </div>
+                    </div>
+                </div>
+                <div class="gtm-stairs-labels">
+                    <div class="gtm-step-meta slide-up delay-100">
+                        <p class="gtm-step-title">Attention</p>
+                        <p class="gtm-step-sub">Reach audience</p>
+                    </div>
+                    <div class="gtm-step-meta slide-up delay-200">
+                        <p class="gtm-step-title">Validation</p>
+                        <p class="gtm-step-sub">Build trust</p>
+                    </div>
+                    <div class="gtm-step-meta slide-up delay-300">
+                        <p class="gtm-step-title">Experience</p>
+                        <p class="gtm-step-sub">Drive conversion</p>
+                    </div>
+                    <div class="gtm-step-meta slide-up delay-400">
+                        <p class="gtm-step-title">Scale</p>
+                        <p class="gtm-step-sub">Increase reach</p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="objective-section-rule slide-up delay-250" aria-hidden="true"></div>
-
-        <!-- Secondary goals: explicit section with header + grid -->
-        <div class="w-full">
-            <div class="objective-secondary-header slide-up delay-300">
-                <p class="text-[13px] md:text-sm font-medium text-[#86868b] tracking-wide m-0">
-                    Secondary goals
-                </p>
-                <p class="objective-secondary-sub m-0">
-                    Brand and education outcomes that support the primary conversion goal.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-px rounded-2xl md:rounded-3xl overflow-hidden bg-white/[0.08] border border-white/[0.06] shadow-[0_24px_80px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
-                <article class="objective-card-glow bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left md:border-r md:border-white/[0.06] last:border-r-0 slide-up delay-400">
-                    <span class="objective-step-num">01</span>
-                    <p class="mt-4 text-[15px] md:text-[17px] leading-snug text-[#e8e8ed] font-medium tracking-[-0.02em]">
-                        Build authority in HCMC pickleball scene
-                    </p>
-                </article>
-                <article class="objective-card-glow bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left md:border-r md:border-white/[0.06] last:border-r-0 slide-up delay-500">
-                    <span class="objective-step-num objective-step-num--2">02</span>
-                    <p class="mt-4 text-[15px] md:text-[17px] leading-snug text-[#e8e8ed] font-medium tracking-[-0.02em]">
-                        Educate market on structured coaching
-                    </p>
-                </article>
-                <article class="objective-card-glow bg-[#0d0d0f]/80 px-6 py-10 md:px-8 md:py-12 text-left slide-up delay-600">
-                    <span class="objective-step-num objective-step-num--3">03</span>
-                    <p class="mt-4 text-[15px] md:text-[17px] leading-snug text-[#e8e8ed] font-medium tracking-[-0.02em]">
-                        Position PB Academy as the most professional system
-                    </p>
-                </article>
-            </div>
+            <p class="gtm-stairs-footnote">
+                Height → difficulty &amp; maturity · Phases 1–3: Attention → Validation → Academy samples · Phase 4: paid scale
+            </p>
         </div>
     </div>
 </div>
