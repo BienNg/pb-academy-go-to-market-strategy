@@ -897,10 +897,28 @@ body {
 
 .gtm-stairs-inner {
     width: 100%;
-    --gtm-h1: 3.25rem;
-    --gtm-h2: 4.875rem;
-    --gtm-h3: 6.75rem;
-    --gtm-h4: 9.25rem;
+    --gtm-h1: 12.5rem;
+    --gtm-h2: 15.5rem;
+    --gtm-h3: 18rem;
+    --gtm-h4: 20.5rem;
+}
+
+@media (min-width: 768px) {
+    .gtm-stairs-inner {
+        --gtm-h1: 14rem;
+        --gtm-h2: 17rem;
+        --gtm-h3: 20rem;
+        --gtm-h4: 22.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-stairs-inner {
+        --gtm-h1: 14.5rem;
+        --gtm-h2: 17.5rem;
+        --gtm-h3: 20.5rem;
+        --gtm-h4: 23rem;
+    }
 }
 
 .gtm-stairs-blocks {
@@ -910,13 +928,13 @@ body {
     align-items: end;
     gap: 0.125rem;
     min-height: var(--gtm-h4);
-    padding: 0 0.25rem;
+    padding: 0 0.125rem;
 }
 
 @media (min-width: 640px) {
     .gtm-stairs-blocks {
         gap: 0.35rem;
-        padding: 0 0.5rem;
+        padding: 0 0.35rem;
     }
 }
 
@@ -935,9 +953,17 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.08),
         0 12px 40px -12px rgba(0, 0, 0, 0.45);
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0.5rem 0.35rem 0.55rem;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .gtm-step-block {
+        padding: 0.65rem 0.5rem 0.7rem;
+    }
 }
 
 .gtm-step-block--1 {
@@ -956,11 +982,89 @@ body {
     height: var(--gtm-h4);
 }
 
+.gtm-step-block-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gtm-step-block-head {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
 .gtm-step-num {
-    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.02em;
-    color: rgba(245, 245, 247, 0.45);
+    color: rgba(245, 245, 247, 0.55);
+}
+
+@media (min-width: 640px) {
+    .gtm-step-num {
+        font-size: 13px;
+    }
+}
+
+.gtm-step-phase {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(134, 134, 139, 0.95);
+}
+
+@media (min-width: 640px) {
+    .gtm-step-phase {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-step-phase {
+        font-size: 13px;
+    }
+}
+
+.gtm-step-copy {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: #e8e8ed;
+}
+
+@media (min-width: 480px) {
+    .gtm-step-copy {
+        font-size: 0.875rem;
+        line-height: 1.42;
+    }
+}
+
+@media (min-width: 768px) {
+    .gtm-step-copy {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-step-copy {
+        font-size: 1.0625rem;
+        line-height: 1.38;
+    }
 }
 
 .gtm-climber {
@@ -1029,61 +1133,11 @@ body {
     }
 }
 
-.gtm-stairs-labels {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.125rem;
-    margin-top: 0.85rem;
-    padding: 0 0.25rem;
-}
-
-@media (min-width: 640px) {
-    .gtm-stairs-labels {
-        gap: 0.35rem;
-        padding: 0 0.5rem;
-    }
-}
-
-.gtm-step-meta {
-    text-align: center;
-    min-width: 0;
-}
-
-.gtm-step-title {
-    margin: 0;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: #f5f5f7;
-    line-height: 1.25;
-}
-
-@media (min-width: 640px) {
-    .gtm-step-title {
-        font-size: 0.9375rem;
-    }
-}
-
-.gtm-step-sub {
-    margin: 0.2rem 0 0;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: rgba(134, 134, 139, 0.95);
-    line-height: 1.35;
-}
-
-@media (min-width: 640px) {
-    .gtm-step-sub {
-        font-size: 0.75rem;
-    }
-}
-
 .gtm-stairs-footnote {
     margin: 1.25rem 0 0;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     line-height: 1.5;
     letter-spacing: 0.01em;
     color: rgba(134, 134, 139, 0.75);
@@ -1092,8 +1146,14 @@ body {
 
 @media (min-width: 640px) {
     .gtm-stairs-footnote {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         margin-top: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-stairs-footnote {
+        font-size: 0.9375rem;
     }
 }
 
