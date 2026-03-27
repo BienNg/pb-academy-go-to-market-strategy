@@ -1,0 +1,297 @@
+/* —— Slide 3: GTM Phases — staircase + climber —— */
+.gtm-phases-slide {
+    min-height: 100%;
+}
+
+.gtm-stairs-panel {
+    width: 100%;
+}
+
+.gtm-stairs-inner {
+    width: 100%;
+    --gtm-h1: 12.5rem;
+    --gtm-h2: 15.5rem;
+    --gtm-h3: 18rem;
+    --gtm-h4: 20.5rem;
+}
+
+@media (min-width: 768px) {
+    .gtm-stairs-inner {
+        --gtm-h1: 14rem;
+        --gtm-h2: 17rem;
+        --gtm-h3: 20rem;
+        --gtm-h4: 22.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-stairs-inner {
+        --gtm-h1: 14.5rem;
+        --gtm-h2: 17.5rem;
+        --gtm-h3: 20.5rem;
+        --gtm-h4: 23rem;
+    }
+}
+
+.gtm-stairs-blocks {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: end;
+    gap: 0.125rem;
+    min-height: var(--gtm-h4);
+    padding: 0 0.125rem;
+}
+
+@media (min-width: 640px) {
+    .gtm-stairs-blocks {
+        gap: 0.35rem;
+        padding: 0 0.35rem;
+    }
+}
+
+.gtm-step-block {
+    position: relative;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+        180deg,
+        rgba(41, 151, 255, 0.22) 0%,
+        rgba(41, 151, 255, 0.06) 55%,
+        rgba(13, 13, 15, 0.4) 100%
+    );
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 40px -12px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0.5rem 0.35rem 0.55rem;
+    overflow: hidden;
+    transform-origin: bottom center;
+}
+
+@media (min-width: 640px) {
+    .gtm-step-block {
+        padding: 0.65rem 0.5rem 0.7rem;
+    }
+}
+
+.gtm-step-block--1 {
+    height: var(--gtm-h1);
+}
+
+.gtm-step-block--2 {
+    height: var(--gtm-h2);
+}
+
+.gtm-step-block--3 {
+    height: var(--gtm-h3);
+}
+
+.gtm-step-block--4 {
+    height: var(--gtm-h4);
+}
+
+.gtm-step-block-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gtm-step-block-head {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.gtm-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: rgba(245, 245, 247, 0.55);
+}
+
+@media (min-width: 640px) {
+    .gtm-step-num {
+        font-size: 13px;
+    }
+}
+
+.gtm-step-phase {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(134, 134, 139, 0.95);
+}
+
+@media (min-width: 640px) {
+    .gtm-step-phase {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-step-phase {
+        font-size: 13px;
+    }
+}
+
+.gtm-step-copy {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: #e8e8ed;
+}
+
+@media (min-width: 480px) {
+    .gtm-step-copy {
+        font-size: 0.875rem;
+        line-height: 1.42;
+    }
+}
+
+@media (min-width: 768px) {
+    .gtm-step-copy {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-step-copy {
+        font-size: 1.0625rem;
+        line-height: 1.38;
+    }
+}
+
+.gtm-climber {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    left: 12.5%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    will-change: left, bottom, opacity;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;
+}
+
+.slide-section:not(.active) .gtm-climber {
+    animation: none !important;
+    left: 12.5%;
+    bottom: 0;
+    opacity: 0;
+}
+
+.gtm-climber-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(41, 151, 255, 0.35));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .slide-section.active .gtm-climber {
+        animation: gtm-climber-ascend 4.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation-delay: 1.15s;
+    }
+}
+
+@keyframes gtm-climber-ascend {
+    0% {
+        left: 12.5%;
+        bottom: 0;
+        opacity: 0;
+    }
+    6% {
+        opacity: 1;
+    }
+    22% {
+        left: 12.5%;
+        bottom: calc(var(--gtm-h1) + 0.85rem);
+    }
+    38% {
+        left: 37.5%;
+        bottom: calc(var(--gtm-h2) + 0.85rem);
+    }
+    58% {
+        left: 62.5%;
+        bottom: calc(var(--gtm-h3) + 0.85rem);
+    }
+    78% {
+        left: 87.5%;
+        bottom: calc(var(--gtm-h4) + 0.85rem);
+    }
+    100% {
+        left: 87.5%;
+        bottom: calc(var(--gtm-h4) + 0.85rem);
+        opacity: 1;
+    }
+}
+
+.gtm-stairs-footnote {
+    margin: 1.25rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: rgba(134, 134, 139, 0.75);
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .gtm-stairs-footnote {
+        font-size: 0.875rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gtm-stairs-footnote {
+        font-size: 0.9375rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide-section.active .gtm-climber {
+        animation: none !important;
+        left: 87.5%;
+        bottom: calc(var(--gtm-h4) + 0.85rem);
+        opacity: 1;
+    }
+}
+/* Animations for GTM slide sub-states (scroll on slide index 2) */
+.gtm-step-block.shrink-away {
+    transform: translateY(0) scale(0) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out !important;
+    transition-delay: 0ms !important;
+}
+
+.gtm-climber.shrink-away {
+    transform: translateX(-50%) scale(0) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out !important;
+    transition-delay: 0ms !important;
+}

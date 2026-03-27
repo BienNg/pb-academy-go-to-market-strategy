@@ -1,0 +1,289 @@
+/* —— Hero slide: Apple-like motion graphics —— */
+.hero-slide {
+    min-height: 100%;
+}
+
+.hero-motion {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-mesh {
+    position: absolute;
+    inset: -30%;
+    background:
+        radial-gradient(ellipse 55% 45% at 20% 35%, rgba(41, 151, 255, 0.22), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 75% 25%, rgba(147, 197, 253, 0.12), transparent 50%),
+        radial-gradient(ellipse 45% 50% at 50% 85%, rgba(59, 130, 246, 0.08), transparent 55%);
+    animation: hero-mesh-drift 22s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+.hero-mesh--secondary {
+    inset: -25%;
+    background:
+        radial-gradient(ellipse 40% 35% at 65% 60%, rgba(99, 102, 241, 0.1), transparent 50%),
+        radial-gradient(ellipse 35% 40% at 30% 70%, rgba(41, 151, 255, 0.06), transparent 48%);
+    animation: hero-mesh-drift-alt 28s ease-in-out infinite reverse;
+    opacity: 0.85;
+}
+
+@keyframes hero-mesh-drift {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    33% {
+        transform: translate(4%, -3%) scale(1.03);
+        opacity: 0.95;
+    }
+    66% {
+        transform: translate(-3%, 4%) scale(0.98);
+        opacity: 1;
+    }
+}
+
+@keyframes hero-mesh-drift-alt {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-5%, 5%) rotate(2deg);
+    }
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: hero-orb-float 14s ease-in-out infinite;
+}
+
+.hero-orb--1 {
+    width: min(55vw, 420px);
+    height: min(55vw, 420px);
+    top: -8%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(41, 151, 255, 0.35) 0%, transparent 70%);
+    animation-duration: 16s;
+}
+
+.hero-orb--2 {
+    width: min(45vw, 340px);
+    height: min(45vw, 340px);
+    bottom: 5%;
+    right: -8%;
+    background: radial-gradient(circle, rgba(147, 197, 253, 0.2) 0%, transparent 68%);
+    animation-duration: 18s;
+    animation-delay: -4s;
+}
+
+.hero-orb--3 {
+    width: min(35vw, 280px);
+    height: min(35vw, 280px);
+    top: 40%;
+    left: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 65%);
+    animation-name: hero-orb-float-center;
+    animation-duration: 20s;
+    animation-delay: -8s;
+    filter: blur(80px);
+}
+
+@keyframes hero-orb-float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+    }
+    33% {
+        transform: translate(3%, -4%) scale(1.05);
+        opacity: 1;
+    }
+    66% {
+        transform: translate(-4%, 3%) scale(0.96);
+        opacity: 0.85;
+    }
+}
+
+@keyframes hero-orb-float-center {
+    0%, 100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-50%, -6%) scale(1.08);
+        opacity: 0.95;
+    }
+}
+
+.hero-ring {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    width: min(90vw, 720px);
+    height: min(90vw, 720px);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 0 80px rgba(41, 151, 255, 0.06),
+        inset 0 0 60px rgba(255, 255, 255, 0.02);
+    animation: hero-ring-breathe 10s ease-in-out infinite;
+}
+
+@keyframes hero-ring-breathe {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.04);
+        opacity: 0.95;
+    }
+}
+
+.hero-flow {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: min(110vw, 900px);
+    height: auto;
+    transform: translate(-50%, -50%);
+    opacity: 0.85;
+}
+
+.hero-flow-path {
+    stroke-dasharray: 12 18;
+    animation: hero-flow-dash 4s linear infinite;
+}
+
+.hero-flow-path--delayed {
+    stroke-dasharray: 8 14;
+    animation-duration: 5.5s;
+    animation-direction: reverse;
+    opacity: 0.5;
+}
+
+@keyframes hero-flow-dash {
+    to {
+        stroke-dashoffset: -60;
+    }
+}
+
+.hero-title {
+    letter-spacing: -0.03em;
+    text-shadow: 0 0 80px rgba(41, 151, 255, 0.15);
+}
+
+.hero-subtitle {
+    letter-spacing: -0.025em;
+}
+
+.hero-tagline {
+    letter-spacing: 0.01em;
+/* Editorial highlight: single word elevated from the line */
+.hero-demand {
+    position: relative;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    padding: 0 0.06em;
+    margin: 0 -0.02em;
+    color: #e0f2fe;
+    background-image: linear-gradient(
+        115deg,
+        #f8fafc 0%,
+        #bae6fd 18%,
+        #38bdf8 42%,
+        #7dd3fc 58%,
+        #f0f9ff 82%,
+        #bae6fd 100%
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hero-demand-shimmer 10s ease-in-out infinite;
+    filter: drop-shadow(0 0 28px rgba(56, 189, 248, 0.35)) drop-shadow(0 0 60px rgba(14, 165, 233, 0.12));
+}
+
+.hero-demand::after {
+    content: '';
+    position: absolute;
+    left: 0.04em;
+    right: 0.04em;
+    bottom: 0.06em;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(56, 189, 248, 0.25) 15%,
+        rgba(186, 230, 253, 0.85) 50%,
+        rgba(56, 189, 248, 0.25) 85%,
+        transparent
+    );
+    opacity: 0.9;
+    pointer-events: none;
+    animation: hero-demand-glowline 6s ease-in-out infinite;
+}
+
+@keyframes hero-demand-shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes hero-demand-glowline {
+    0%, 100% {
+        opacity: 0.55;
+        transform: scaleX(0.92);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-demand,
+    .hero-demand::after {
+        animation: none !important;
+    }
+
+    .hero-demand {
+        background: none;
+        -webkit-text-fill-color: #e0f2fe;
+        color: #e0f2fe;
+        filter: none;
+    }
+
+    .hero-mesh,
+    .hero-mesh--secondary,
+    .hero-orb,
+    .hero-ring,
+    .hero-flow-path,
+    .hero-flow-path--delayed {
+        animation: none !important;
+    }
+
+    .hero-flow-path {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+    }
+
+    .hero-mesh,
+    .hero-orb {
+        transform: none;
+    }
+
+    .hero-ring {
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+    }
+}

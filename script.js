@@ -3,7 +3,11 @@ const slides = [
     'slide-02-market-entry.html',
     'slide-03-objective.html',
     'slide-04-approach.html',
-    'slide-05-phases-1-2.html'
+    'slide-05-phases-1-2.html',
+    'slide-06-placeholder.html',
+    'slide-07-placeholder.html',
+    'slide-08-placeholder.html',
+    'slide-09-placeholder.html'
 ];
 
 let currentSlideIndex = 0;
