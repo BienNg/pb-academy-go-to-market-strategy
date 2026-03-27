@@ -7,7 +7,10 @@ const slides = [
     'slide-06-phase2-validation.html',
     'slide-07-placeholder.html',
     'slide-08-social-conversion.html',
-    'slide-09-placeholder.html'
+    'slide-09-objective.html',
+    'slide-10-placeholder.html',
+    'slide-11-placeholder.html',
+    'slide-12-placeholder.html'
 ];
 
 let currentSlideIndex = 0;
